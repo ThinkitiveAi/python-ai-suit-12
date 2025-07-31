@@ -1,111 +1,80 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+:root {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
 
-@layer base {
-  html {
-    font-family: 'Inter', system-ui, sans-serif;
-  }
-  
-  body {
-    @apply bg-gradient-to-br from-blue-50 via-white to-green-50;
-    min-height: 100vh;
+  color-scheme: light;
+  color: #1a1a1a;
+  background-color: #ffffff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Medical theme colors */
+:root {
+  --primary-blue: #2563eb;
+  --secondary-green: #059669;
+  --background-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --card-background: rgba(255, 255, 255, 0.95);
+  --text-primary: #1a1a1a;
+  --text-secondary: #6b7280;
+  --border-color: #e5e7eb;
+  --error-color: #ef4444;
+  --success-color: #10b981;
+}
+
+/* Focus styles for accessibility */
+*:focus {
+  outline: 2px solid var(--primary-blue);
+  outline-offset: 2px;
+}
+
+/* Smooth transitions */
+* {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Responsive design helpers */
+@media (max-width: 768px) {
+  :root {
+    font-size: 14px;
   }
 }
 
-@layer components {
-  .input-field {
-    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200;
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --border-color: #000000;
+    --text-secondary: #000000;
   }
-  
-  .btn-primary {
-    @apply w-full bg-primary-500 hover:bg-primary-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
   }
-  
-  .btn-secondary {
-    @apply text-primary-500 hover:text-primary-600 font-medium transition-colors duration-200;
-  }
-  
-  .btn-nav {
-    @apply flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-200 min-w-[120px] focus:ring-2 focus:ring-offset-2;
-  }
-  
-  .btn-nav-primary {
-    @apply bg-primary-500 hover:bg-primary-600 text-white focus:ring-primary-500 active:bg-primary-700;
-  }
-  
-  .btn-nav-secondary {
-    @apply border border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 active:bg-gray-100 focus:ring-gray-500;
-  }
-  
-  .btn-nav-disabled {
-    @apply border-gray-200 text-gray-400 cursor-not-allowed bg-gray-50;
-  }
-  
-  .card {
-    @apply bg-white rounded-xl shadow-lg border border-gray-100 p-8;
-  }
-  
-  .medical-icon {
-    @apply text-primary-500;
-  }
-  
-  /* Responsive navigation container */
-  .nav-container {
-    @apply flex flex-col sm:flex-row justify-between items-center gap-4;
-  }
-  
-  /* Step indicator styling */
-  .step-indicator {
-    @apply flex items-center text-sm text-gray-500 bg-gray-50 px-4 py-2 rounded-lg;
-  }
-  
-  /* Patient-specific styles */
-  .patient-input {
-    @apply w-full px-4 py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-lg;
-  }
-  
-  .patient-btn {
-    @apply w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-4 px-6 rounded-lg transition-all duration-200 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed text-lg;
-  }
-  
-  .patient-card {
-    @apply bg-white rounded-xl shadow-lg border border-gray-100 p-8 max-w-md mx-auto;
-  }
-  
-  .help-section {
-    @apply bg-white rounded-lg border border-gray-200 p-4 text-center;
-  }
-  
-  .security-notice {
-    @apply bg-blue-50 border border-blue-200 rounded-lg p-4;
-  }
-  
-  .error-message {
-    @apply flex items-center p-4 bg-red-50 border border-red-200 rounded-lg;
-  }
-  
-  /* Accessibility enhancements */
-  .focus-visible {
-    @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
-  }
-  
-  /* Large touch targets for mobile */
-  .touch-target {
-    @apply min-h-[44px] min-w-[44px];
-  }
-  
-  /* High contrast text */
-  .high-contrast {
-    @apply text-gray-900;
-  }
-  
-  /* Calming animations */
-  .calm-fade-in {
-    @apply animate-fade-in duration-500;
-  }
-  
-  .calm-slide-up {
-    @apply animate-slide-up duration-700;
-  }
-} 
+}
